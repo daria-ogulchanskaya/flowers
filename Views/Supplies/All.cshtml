@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Supply>
+
+<a asp-controller="Home" asp-action="Index">Home</a> |
+<a asp-controller="Supplies" asp-action="All">Supplies</a> |
+<a asp-controller="Supplies" asp-action="Add">Add supply</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Plantation Id</th>
+            <th>Warehouse Id</th>
+            <th>Scheduled Date</th>
+            <th>Closed Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var supply in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => supply.Id)</td>
+            <td>@Html.DisplayFor(modelItem => supply.PlantationId)</td>
+            <td>@Html.DisplayFor(modelItem => supply.WarehouseId)</td>
+            <td>@Html.DisplayFor(modelItem => supply.ScheduledDate)</td>
+            <td>@Html.DisplayFor(modelItem => supply.ClosedDate)</td>
+            <td>@Html.DisplayFor(modelItem => supply.Status)</td>
+            <td>
+                <a asp-controller="Supplies" asp-action="Remove" asp-route-value="@supply.Id">Remove</a> |
+                <a asp-controller="Supplies" asp-action="Get" asp-route-id="@supply.Id">Details</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

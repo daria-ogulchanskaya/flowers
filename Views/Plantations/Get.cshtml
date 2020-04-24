@@ -1,0 +1,29 @@
+﻿@model Plantation
+
+<a asp-controller="Home" asp-action="Index">Home</a> |
+<a asp-controller="Plantations" asp-action="All">Plantations</a> |
+<a asp-controller="Plantations" asp-action="Add">Add plantation</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Address</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Name</td>
+            <td>@Model.Address</td>
+        </tr>
+    </tbody>
+</table>
+
+<a asp-controller="Plantations" asp-action="Update" asp-route-id="@Model.Id" >Update</a> |
+<a asp-controller="Plantations" asp-action="AddFlower" asp-route-id="@Model.Id">Add flowers</a> |
+<a asp-controller="Plantations" asp-action="All">Back</a>
+
+
+

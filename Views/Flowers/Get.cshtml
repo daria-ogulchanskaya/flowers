@@ -1,0 +1,19 @@
+﻿@model Flower
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Name</td>
+        </tr>
+    </tbody>
+</table>
+
+<a asp-controller="Flowers" asp-action="Update" asp-route-id="@Model.Id">Update</a> |
+<a asp-controller="Flowers" asp-action="All">Back</a>

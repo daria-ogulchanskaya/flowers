@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Flower>
+
+<a asp-controller="Home" asp-action="Index">Home</a> |
+<a asp-controller="Flowers" asp-action="All">Flowers</a>|
+<a asp-controller="Flowers" asp-action="Add">Add flower</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var flower in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => flower.Id)</td>
+            <td>@Html.DisplayFor(modelItem => flower.Name)</td>
+            <td>
+                <a asp-controller="Flowers" asp-action="Remove" asp-route-value="@flower.Id">Remove</a> |
+                <a asp-controller="Flowers" asp-action="Get" asp-route-id="@flower.Id">Detail</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

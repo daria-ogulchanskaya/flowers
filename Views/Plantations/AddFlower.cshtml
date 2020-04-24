@@ -1,0 +1,20 @@
+﻿@model Flowers.ViewModels.PlantationFlowerViewModel
+
+<form method="post" asp-controller="Plantation" asp-action="AddFlowerToPlantation">
+    <div>
+        @Html.DropDownListFor(m => m.PlantationId, Model.Plantations, "Select the plantation", new { @class = "form-control" });
+    </div>
+    <div>
+        @Html.DropDownListFor(m => m.FlowerId, Model.Flowers, "Select the flower type", new { @class = "form-control" });
+    </div>
+    <div>
+        <label asp-for="Amount"><strong>Amount</strong></label><br />
+        <input asp-for="Amount" class="form-control" placeholder="Amount" />
+    </div>
+    <div>
+        <button id="add-cart-style-grid" class="btn btn-dark" type="submit">Add</button>
+    </div>
+
+</form>
+
+<a asp-controller="Plantations" asp-action="All">Cancel</a>

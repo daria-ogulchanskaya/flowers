@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Warehouse>
+
+<a asp-controller="Home" asp-action="Index">Home</a> |
+<a asp-controller="Warehouses" asp-action="All">Warehouses</a> |
+<a asp-controller="Warehouses" asp-action="Add">Add warehouse</a> 
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var warehouse in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => warehouse.Id)</td>
+            <td>@Html.DisplayFor(modelItem => warehouse.Name)</td>
+            <td>@Html.DisplayFor(modelItem => warehouse.Address)</td>
+            <td>
+                <a asp-controller="Warehouses" asp-action="Remove" asp-route-value="@warehouse.Id">Remove</a> |
+                <a asp-controller="Warehouses" asp-action="Get" asp-route-id="@warehouse.Id">Details</a> 
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+﻿@model Flower
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add flower</title>
+</head>
+<body>
+    <div class="container">
+        <form method="post" asp-controller="FLowers" asp-action="Add">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <div>
+                <label asp-for="Name"><strong>Name</strong></label><br />
+                <input asp-for="Name" class="form-control" placeholder="Name" />
+            </div>
+
+            <button class="btn btn-dark" type="submit">Add</button>
+
+        </form>
+    </div>
+</body>
+</html>
+
+<a asp-controller="Flowers" asp-action="All">Cancel</a>

@@ -1,0 +1,46 @@
+﻿@model Flowers.ViewModels.UpdateSupplyViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update supply</title>
+</head>
+<body>
+    <div class="container">
+        <form method="post" asp-controller="Supplies" asp-action="Update">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <label asp-for="PlantationId"><strong>Plantation</strong></label><br />
+            <div>
+                @Html.DropDownListFor(m => m.PlantationId, Model.Plantations, "Select the plantation", new { @class = "form-control" })
+            </div>
+
+            <label asp-for="WarehouseId"><strong>Warehouse</strong></label><br />
+            <div>
+                @Html.DropDownListFor(m => m.WarehouseId, Model.Warehouses, "Select the warehouse", new { @class = "form-control" })
+            </div>
+            <div>
+                <label asp-for="ScheduledDate"><strong>Scheduled Date</strong></label><br />
+                <input asp-for="ScheduledDate" class="form-control" placeholder="ScheduledDate" />
+            </div>
+
+            <div>
+                <label asp-for="ClosedDate"><strong>Closed Date</strong></label><br />
+                <input asp-for="ClosedDate" class="form-control" placeholder="ClosedDate" />
+            </div>
+
+            <div>
+                <label asp-for="Status"><strong>Status</strong></label><br />
+                <input asp-for="Status" class="form-control" placeholder="Status" />
+            </div>
+
+            <button class="btn btn-dark" type="submit">Update</button>
+
+        </form>
+    </div>
+</body>
+</html>
+
+<a asp-controller="Supplies" asp-action="All">Cancel</a>
